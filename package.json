@@ -1,0 +1,23 @@
+{
+  "name": "ssl_checker",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/nodemailer": "^6.4.17",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@types/node": "^22.13.1",
+    "axios": "^1.7.9",
+    "moment": "^2.30.1",
+    "moment-timezone": "^0.5.47",
+    "nodemailer": "^6.10.0"
+  }
+}
