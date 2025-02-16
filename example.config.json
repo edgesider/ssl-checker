@@ -1,0 +1,18 @@
+{
+  "email": {
+    "from": {
+      "name": "SSL Checker",
+      "host": "stmp.example.com",
+      "port": 465,
+      "secure": true,
+      "auth": {
+        "user": "notify@example.com",
+        "pass": "notify"
+      }
+    },
+    "to": "me@example.com"
+  },
+  "hosts": [
+    "example.com"
+  ]
+}
