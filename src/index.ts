@@ -106,6 +106,11 @@ async function checkAll() {
 }
 
 function main() {
+  if (process.env['RUN'] === '1') {
+    console.log('run now...');
+    checkAll().then();
+    return;
+  }
   CronJob.from({
     cronTime: '0 10 * * *',
     onTick: checkAll,
