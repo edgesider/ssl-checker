@@ -5,8 +5,20 @@ import tls, { TLSSocket } from 'node:tls'
 import nodemailer from 'nodemailer';
 
 async function tslConnect(host: string): Promise<TLSSocket> {
+  let port = 443;
+  if (host.indexOf(':') !== -1) {
+    const hostAndPort = host.split(':');
+    if (hostAndPort.length !== 2) {
+      throw Error(`invalid host: ${host}`)
+    }
+    host = hostAndPort[0];
+    port = parseInt(hostAndPort[1]);
+    if (isNaN(port)) {
+      throw Error(`invalid host: ${host}`)
+    }
+  }
   return new Promise((res, rej) => {
-    const socket = tls.connect({ host: host, port: 443, servername: host }, () => {
+    const socket = tls.connect({ host, port, servername: host }, () => {
       res(socket);
     })
     socket.on('error', rej);
